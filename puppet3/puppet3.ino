@@ -29,40 +29,29 @@ void loop() {
 //  if (Serial.available() > 0)
 //  {
 //    read1 = Serial.readString();
-//    dir = read1.toInt();
+////    dir = read1.toInt();
 //    a1=read1.substring(0,3).toInt();
-//    a3=read1.substring(4,7).toInt();
-//    a2=read1.substring(8,11).toInt();
-//    Serial.println(dir);
+//    a2=read1.substring(4,7).toInt();
+//    a3=read1.substring(8,11).toInt();
+//    Serial.println(a1);
 //    Serial.println(a2);
 //    Serial.println(a3);
 //  }
-  
-  if (servo_dir == 1) 
+  for (int i=0;i<4;i++)
   {
-    temp += 30;
-    if (temp == 180)
-    {
-      servo_dir = 0;
-    }
-  }
-  else
-  {
-    temp -= 30;
-    if (temp == 0)
-    {
-      servo_dir = 1;
-    }
-  }
-  
-  moveall(temp, temp, 180-temp, -1,100);
+  moveall(120, 180, 60, -2,20);
   delay(100);
-
-// int a1 = rand() % 180;
-// int a2 = rand() % 180;
-// int a3 = rand() % 180;
-//  int a4 = rand() % 180;
-//  servo_move(a1, a2, a3, a4);
+  moveall(180, 90, 0, -2,20);
+  delay(100);
+  }
+  for (int i=0;i<4;i++)
+  {
+  moveall(60, 90, 120, 2,20);
+  delay(100);
+  moveall(0, 180, 180, 2,20);
+  delay(100);
+  }
+  
 }
 
 void moveall(int a1, int a2, int a3, int dist, int dely)
@@ -100,4 +89,9 @@ void stepper(int dir, int dely)
   delayMicroseconds(dely);
   digitalWrite(stepPin, LOW);
   delayMicroseconds(dely);
+}
+
+void left_up()
+{
+  
 }
