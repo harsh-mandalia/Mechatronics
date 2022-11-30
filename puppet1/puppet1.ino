@@ -7,7 +7,7 @@ int temp = 90;
 void setup() {
   s1.attach(3);
   s2.attach(5);
-  s3.attach(6);
+  s3.attach(6); 
 }
 
 void loop() {
